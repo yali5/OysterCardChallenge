@@ -5,14 +5,15 @@ describe Oystercard do
     expect(subject::balance). to eq 0
   end 
  
-  it 'ensure that I can add money to my card' do
-    expect(subject.top_up(10)). to eq 10
-  end
+  describe 'top up' do
 
-  it 'checks there is a max balance limit of £90 on the card' do 
-    expect{subject.top_up(91)}. to raise_error( "Maximum balance exceeded" )
-  end 
+    it 'ensure that I can add money to my card' do
+      expect(subject.top_up(10)). to eq 10
+    end
+
+    it 'checks there is a max balance limit of £90 on the card' do 
+      expect{subject.top_up(91)}. to raise_error( "Maximum balance exceeded" )
+    end 
+  end
   
 end 
-
-
