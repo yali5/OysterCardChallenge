@@ -8,10 +8,14 @@ class Oystercard
     @balance = initial_balance
   end 
 
-  def top_up(money)
-    @money = money 
+  def top_up(money_in)
+    @money = money_in
     @balance += @money unless over_balance_limit?
   end
+
+  def deduct(money_out)
+    @balance -= money_out
+  end 
 
   private
 
