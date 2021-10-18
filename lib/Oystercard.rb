@@ -7,8 +7,5 @@ class Oystercard
     @initial_balance = initial_balance
   end 
 
-  def balance
-    @initial_balance
-  end 
 
 end 
