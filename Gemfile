@@ -10,3 +10,6 @@ group :development, :test do
   gem "rspec"
 end
 
+group :development, :test do
+  gem 'rubocop', '1.20.0'
+end
