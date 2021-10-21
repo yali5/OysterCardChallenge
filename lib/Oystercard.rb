@@ -8,6 +8,7 @@ class Oystercard
   def initialize(initial_balance = 0)
     @balance = initial_balance
     @journey = false
+    @entry_station = ''
   end 
 
   def top_up(money_in)
@@ -17,6 +18,7 @@ class Oystercard
 
   def touch_in
     fail "not enough funds" unless balance > MIN_FARE
+    @entry_station = 'Victoria'
     @journey = true 
   end
 

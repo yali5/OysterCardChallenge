@@ -37,6 +37,7 @@ describe Oystercard do
     subject.touch_in
     expect { subject.touch_out }.to change { subject.balance }.by -Oystercard::MIN_FARE
     end 
+    
   end 
 
    describe 'touch_out' do
