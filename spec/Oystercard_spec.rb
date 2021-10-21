@@ -38,7 +38,7 @@ describe Oystercard do
     it 'checks minium balance' do
       subject = Oystercard.new
       subject.top_up(Oystercard::MIN_FARE - 0.01)
-      expect{subject.touch_in}.to raise_error "not enough funds"
+      expect { subject.touch_in }.to raise_error "not enough funds"
     end 
 
   end 
@@ -49,7 +49,7 @@ describe Oystercard do
       subject = Oystercard.new
       subject.top_up(Oystercard::MAX_BALANCE)
       subject.touch_in
-      expect( subject.touch_out ).to be false
+      expect(subject.touch_out).to be false
     end  
 
   end 
@@ -68,7 +68,7 @@ describe Oystercard do
       subject.top_up(Oystercard::MAX_BALANCE)
       subject.touch_in
       subject.touch_out
-      expect( subject.in_journey? ).to be false
+      expect(subject.in_journey?).to be false
     end 
 
   end 

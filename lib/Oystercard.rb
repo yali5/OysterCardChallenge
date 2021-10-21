@@ -20,7 +20,7 @@ class Oystercard
   end 
 
   def touch_in
-    fail "not enough funds" unless balance > MIN_FARE #breaks everything
+    fail "not enough funds" unless balance > MIN_FARE
     @journey = true 
   end
 
@@ -31,7 +31,6 @@ class Oystercard
   def in_journey?
     @journey
   end
-
 
   private
 
