@@ -15,16 +15,13 @@ class Oystercard
     @balance += @money unless over_balance_limit?
   end
 
-  def deduct(money_out)
-    @balance -= money_out
-  end 
-
   def touch_in
     fail "not enough funds" unless balance > MIN_FARE
     @journey = true 
   end
 
   def touch_out
+    deduct(MIN_FARE)
     @journey = false
   end
 
@@ -37,5 +34,9 @@ class Oystercard
   def over_balance_limit?
     raise("Maximum balance exceeded") if @balance + @money > MAX_BALANCE
   end
+
+  def deduct(money_out)
+    @balance -= money_out
+  end 
 
 end 

@@ -16,16 +16,6 @@ describe Oystercard do
     end 
   end
 
-  describe 'deduct' do
-    
-    it 'deducts the customers fare from their card' do
-      subject.top_up(10)
-      subject.deduct(5)
-      expect(subject::balance).to eq 5
-    end 
-
-  end 
-
   describe 'touch_in' do
     
     it 'works against oystercard class' do
@@ -41,9 +31,15 @@ describe Oystercard do
       expect { subject.touch_in }.to raise_error "not enough funds"
     end 
 
+    it 'should deduct the correct fare'do
+    subject = Oystercard.new
+    subject.top_up(Oystercard::MAX_BALANCE)
+    subject.touch_in
+    expect { subject.touch_out }.to change { subject.balance }.by -Oystercard::MIN_FARE
+    end 
   end 
 
-  describe 'touch_out' do
+   describe 'touch_out' do
     
     it 'works against oystercard class' do
       subject = Oystercard.new
